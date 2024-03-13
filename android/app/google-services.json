@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "788557808094",
+    "project_id": "softeng-egghunt",
+    "storage_bucket": "softeng-egghunt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788557808094:android:04030054e97c1183011d4f",
+        "android_client_info": {
+          "package_name": "com.octo.softeng.egghunt.softeng_egghunt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCY_T-yhKtxkpNVcq8xxRqZHD_0dO2jj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
