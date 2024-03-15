@@ -10,15 +10,21 @@ class ScanCodeInitialState extends ScanCodeState {
 }
 
 class ScanCodeCodeSuccess extends ScanCodeState {
+  final String title;
+  final String message;
+
+  const ScanCodeCodeSuccess({required this.title, required this.message});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [title, message];
 }
 
 class ScanCodeCodeFailure extends ScanCodeState {
+  final String errorTitle;
   final String errorMessage;
 
-  const ScanCodeCodeFailure({required this.errorMessage});
+  const ScanCodeCodeFailure({required this.errorTitle, required this.errorMessage});
 
   @override
-  List<Object?> get props => [errorMessage];
+  List<Object?> get props => [errorTitle, errorMessage];
 }

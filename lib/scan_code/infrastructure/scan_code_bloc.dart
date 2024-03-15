@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:softeng_egghunt/data/Egg.dart';
 import 'package:softeng_egghunt/data/collected_egg.dart';
 import 'package:softeng_egghunt/repository/collected_eggs_repository.dart';
 import 'package:softeng_egghunt/repository/eggs_repository.dart';
@@ -34,18 +35,34 @@ class ScanCodeBloc extends Bloc<ScanCodeEvent, ScanCodeState> {
 
     final currentUsername = await _usernameRepository.getUsername();
     if (currentUsername == null) {
-      emit(const ScanCodeCodeFailure(errorMessage: "Étrange... ton polygramme n'est pas renseigné !"));
+      emit(const ScanCodeCodeFailure(
+        errorTitle: "Étrange...",
+        errorMessage: "Il semblerait que ton polygramme n'est pas renseigné !\n... Comment est-tu arrivé ici ?! 🤔",
+      ));
       return;
     }
 
-    if (!(await _eggsRepository.getEggs()).any((egg) => egg.eggName == event.codeValue)) {
-      emit(const ScanCodeCodeFailure(errorMessage: "Petit tricheur, ce code ne fait pas parti des oeufs à trouver !"));
+    Egg? eggFound;
+    try {
+      eggFound = (await _eggsRepository.getEggs()).firstWhere((egg) => egg.eggName == event.codeValue);
+    } catch (e) {
+      eggFound = null;
+    }
+
+    if (eggFound == null) {
+      emit(const ScanCodeCodeFailure(
+        errorTitle: "Petit tricheur !",
+        errorMessage: "Ce code ne fait pas parti des oeufs à trouver ! 👀",
+      ));
       return;
     }
 
     if ((await _collectedEggsRepository.getCollectedEggs())
         .any((collectedEgg) => collectedEgg.userName == currentUsername && collectedEgg.eggName == event.codeValue)) {
-      emit(const ScanCodeCodeFailure(errorMessage: "Petit tricheur, cet oeuf a déjà été enregistré !"));
+      emit(const ScanCodeCodeFailure(
+        errorTitle: "Petit tricheur !",
+        errorMessage: "Petit tricheur, cet oeuf a déjà été enregistré ! 👿",
+      ));
       return;
     }
 
@@ -56,6 +73,9 @@ class ScanCodeBloc extends Bloc<ScanCodeEvent, ScanCodeState> {
       ),
     );
 
-    emit(ScanCodeCodeSuccess());
+    emit(ScanCodeCodeSuccess(
+      title: "Bravo !",
+      message: "Cet oeuf te rapporte ${eggFound.eggValue} point(s) ! 🥚🎉",
+    ));
   }
 }

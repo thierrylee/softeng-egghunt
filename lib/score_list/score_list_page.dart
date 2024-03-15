@@ -23,13 +23,13 @@ class ScoreListPage extends StatelessWidget {
             tooltip: "Scanner un code",
             onPressed: () {
               Navigator.of(context).pushNamed(ScanCodePage.routeName).then((returnValue) {
-                final errorMessage = returnValue as String?;
-                if (errorMessage != null) {
+                final scanResults = returnValue as ScanCodePageResult?;
+                if (scanResults != null) {
                   showDialog(
                     context: context,
                     builder: (dialogContext) => AlertDialog(
-                      title: const Text("Erreur !"),
-                      content: Text(errorMessage),
+                      title: Text(scanResults.title),
+                      content: Text(scanResults.message),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -73,7 +73,7 @@ class _ScoreListScreen extends StatelessWidget {
 class _ScoreListView extends StatelessWidget {
   final ScoreListWithResultsViewModel viewModel;
 
-  const _ScoreListView({super.key, required this.viewModel});
+  const _ScoreListView({required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class _ScoreWidget extends StatelessWidget {
   final EggHuntScore myScore;
   final EggHuntScore viewModel;
 
-  const _ScoreWidget({super.key, required this.myScore, required this.viewModel});
+  const _ScoreWidget({required this.myScore, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
