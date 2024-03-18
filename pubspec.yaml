@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.4
   shared_preferences: ^2.2.2
-  qr_code_dart_scan: ^0.7.5
+  qr_code_dart_scan: ^0.7.6
   firebase_core: ^2.27.0
   cloud_firestore: ^4.15.8
   equatable: ^2.0.5
