@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:softeng_egghunt/data/Egg.dart';
+import 'package:softeng_egghunt/data/egg.dart';
 
 abstract class EggsRepository {
   Future<Iterable<Egg>> getEggs();

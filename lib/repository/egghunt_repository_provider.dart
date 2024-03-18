@@ -5,7 +5,7 @@ import 'package:softeng_egghunt/repository/eggs_repository.dart';
 import 'package:softeng_egghunt/repository/username_repository.dart';
 
 abstract class EggHuntRepositoryProvider {
-  static const _useMock = false;
+  static const _useMock = true;
 
   static UsernameRepository getUsernameRepository() {
     if (GetIt.instance.isRegistered<UsernameRepository>()) {

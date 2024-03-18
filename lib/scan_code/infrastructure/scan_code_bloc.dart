@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softeng_egghunt/data/Egg.dart';
+import 'package:softeng_egghunt/data/egg.dart';
 import 'package:softeng_egghunt/data/collected_egg.dart';
 import 'package:softeng_egghunt/repository/collected_eggs_repository.dart';
 import 'package:softeng_egghunt/repository/eggs_repository.dart';
