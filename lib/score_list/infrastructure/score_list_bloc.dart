@@ -7,7 +7,7 @@ import 'package:softeng_egghunt/data/collected_egg.dart';
 import 'package:softeng_egghunt/repository/collected_eggs_repository.dart';
 import 'package:softeng_egghunt/repository/eggs_repository.dart';
 import 'package:softeng_egghunt/repository/username_repository.dart';
-import 'package:softeng_egghunt/score_list/domain/EggHuntScore.dart';
+import 'package:softeng_egghunt/score_list/domain/egghunt_score.dart';
 
 part 'score_list_event.dart';
 

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:softeng_egghunt/score_list/domain/EggHuntScore.dart';
+import 'package:softeng_egghunt/score_list/domain/egghunt_score.dart';
 
 sealed class ScoreListViewModel extends Equatable {}
 

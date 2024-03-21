@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:softeng_egghunt/repository/egghunt_repository_provider.dart';
 import 'package:softeng_egghunt/scan_code/scan_code_page.dart';
-import 'package:softeng_egghunt/score_list/domain/EggHuntScore.dart';
+import 'package:softeng_egghunt/score_list/domain/egghunt_score.dart';
 import 'package:softeng_egghunt/score_list/infrastructure/score_list_bloc.dart';
 import 'package:softeng_egghunt/score_list/score_list_presenter.dart';
 import 'package:softeng_egghunt/score_list/score_list_viewmodel.dart';
